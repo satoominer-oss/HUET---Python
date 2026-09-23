@@ -10,7 +10,6 @@ tup[:] = [
 
 list = []
 i = 0
-test = True
 for i in range(len(tup)):
     dtb=0
     list = tup[i]
@@ -18,7 +17,7 @@ for i in range(len(tup)):
     for j in range(2, len(list)):
         dtb += list[j]
     dtb = dtb/3
-    list.append(round(dtb,3))
+    list.append(round(dtb,1))
     tup[i] = list
 
 for i in range(len(tup)):
