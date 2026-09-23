@@ -1,17 +1,13 @@
-tup = [['1', '1', 7, 1, 3],['2', '2', 5, 4, 6],['3', '3', 5, 8, 9], ['4', '4', 8, 5, 9], ['5', '5', 8, 6, 7]]
-#Nhap so hoc sinh
+tup = [['A1', 'TTHA', 7, 1, 3],['A2', 'HNY', 5, 4, 6],['C3', 'VLDK', 5, 8, 9], ['A4', 'CVHL', 8, 5, 9], ['B5', 'VLTK', 8, 6, 7]]
 n = len(tup)
-
-#Nhap danh sach hs    
+   
 print("Danh Sách: ",tup)
 
-#Loc danh sach diem khong hop le
 tup[:] = [
     row for row in tup
-    if all(0 <= int(x) <= 10 for x in row[1:-1])
+    if all(0 <= int(x) <= 10 for x in row[2:-1])
 ]
 
-#diem trung binh
 list = []
 i = 0
 test = True
@@ -22,10 +18,9 @@ for i in range(len(tup)):
     for j in range(2, len(list)):
         dtb += list[j]
     dtb = dtb/3
-    list.append(round(dtb,3)) #lam tron bien toi 3 gia tri thap phan
+    list.append(round(dtb,3))
     tup[i] = list
 
-#Xep Loai
 for i in range(len(tup)):
     list = tup[i]
     if list[-1] >=9:
@@ -44,7 +39,6 @@ for i in range(len(tup)):
         list.append("Yếu")
         tup[i] = list
 
-#in ra ket qua
 print(f"Danh Sách Đầy Đủ: {tup}")
 
 ratings = [row[-1] for row in tup]
@@ -65,17 +59,17 @@ print("Học Sinh Yếu Gồm: ")
 for i in range(len(tup)):
     list = tup[i]
     if list[-1] == "Yếu":
-        print(f"Sinh Viên : '{list[0]}' Với Điểm {list[2:5]}")
+        print(f"Sinh Viên : '{list[1]}' Với Điểm {list[2:5]} và điểm trung bình là {list[-2]}")
         print(f"Số Điểm cần bù là: {10 - list[-2]}")
 print("---------------------------------------")
 max = 0
-posmax = 0 #vi tri cua nguoi co diem tb cao nhat
+posmax = 0
 for i in range(len(tup)):
     list = tup[i]
     if max < list[-2]:
         max = list[-2]
         posmax = i
-        maxname = list[0]
+        maxname = list[1]
 print(f"Sinh Viên có điểm cao nhất: '{maxname}'")
 print(f"Với điểm: {max}")
 print(f"Thông Tin Sinh Viên : {tup[posmax]}")
