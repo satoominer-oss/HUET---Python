@@ -6,26 +6,10 @@ n = len(tup)
 print("Danh Sách: ",tup)
 
 #Loc danh sach diem khong hop le
-i=0
-test = True
-while i != (len(tup)):
-    list = tup[i]
-    test = True
-    while test==True:
-        j = 1
-        while j < (len(list)-1):
-            j +=1
-            x = list[j]
-            if not(0 <= int(x) <= 10):
-                tup.pop(i)
-                test = False
-                list = []
-                j += 10
-                break
-            elif (j==(len(list)-1)):
-                i += 1
-                test = False
-                break
+tup[:] = [
+    row for row in tup
+    if all(0 <= int(x) <= 10 for x in row[1:-1])
+]
 
 #diem trung binh
 list = []
