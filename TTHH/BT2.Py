@@ -1,0 +1,6 @@
+f = open("Courses.txt")
+content = f.read()
+print(content)
+num = len(content)
+print(num)
+f.close()
